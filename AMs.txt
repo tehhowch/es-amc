@@ -1,0 +1,12 @@
+name	strength	range	reload
+"Anti-Missile Turret"	5	150	8
+"Heavy Anti-Missile Turret"	8	200	6
+"Wanderer Anti-Missile"	40	360	20
+"Point Defense Turret"	42	270	10
+"Quarg Anti-Missile"	25	500	10
+"Pug Anti-Missile"	5	200	2
+"Tier 3 Anti-Missile"	100	570	6
+"Korath Warder"	10	350	5
+"Bullfrog Anti-Missile"	12	150	20
+"Chameleon Anti-Missile"	16	200	15
+"Drak Anti-Missile Field"	100	400	1

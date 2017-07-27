@@ -25,7 +25,8 @@ bool AntiMissile::CanFire(const Missile &missile) const
 }
 
 
-
+// Reset the AM's cooldown and return the strength check used to see if
+// the projectile that was fired at was killed.
 int AntiMissile::Fire()
 {
 	cooldown = reload;

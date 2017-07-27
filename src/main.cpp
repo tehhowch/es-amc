@@ -41,7 +41,7 @@ void PrintMissiles()
 		return;
 	}
 	
-	cout << "Missile" << '\t' << "Strength" << '\t' << "Velocity" << '\t' << "TriggerRadius" << endl;
+	cout << "Missile" << '\t' << "Strength" << '\t' << "Velocity" << '\t' << "TriggerRadius" << '\n';
 	for(auto &it : missiles)
 	{
 		cout << it->Name() << '\t' << it->Strength() << '\t' << it->Velocity() << '\t' << it->TriggerRadius() << '\n';
@@ -68,6 +68,21 @@ void PrintData()
 	cout.flush();
 }
 
+
+
+void PrintAntiMissiles()
+{
+	if(ams.empty())
+	{
+		cout << "No anti-missiles loaded." << endl;
+		return;
+	}
+	cout << "Anti-Missile" << '\t' << "Strength" << '\t' << "Range" << '\t' << "Shots/sec" << '\n';
+	for(auto &it : ams)
+		cout << it->Name() << '\t' << it->Strength() << '\t' << it->Range() << '\t' 
+			<< it->ShotsPerSecond() << '\n';
+	cout.flush();
+}
 
 
 void ReadData(std::string path)

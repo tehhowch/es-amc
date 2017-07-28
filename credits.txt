@@ -1,0 +1,10 @@
+This program is made possible by and derives heavily from the concepts used in the program "Endless Sky", developed primarily by Michael Zahniser.
+
+Endless Sky may be obtained from the GitHub repository
+  https://github.com/endless-sky/endless-sky
+and has a website located at
+  https://endless-sky.github.io
+
+
+Programming
+  tehhowch

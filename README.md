@@ -2,7 +2,7 @@
 
 To build, simply use g++ with the C++11 option, e.g.
 ```
-g++ -std=c++11 -Wall -O2 -o amc
+g++ -std=c++11 -Wall -O2 src/*cpp -o amc
 ```
 and then execute by typing
 ./amc

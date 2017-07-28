@@ -65,7 +65,7 @@ const double AntiMissile::ShotsPerSecond() const
 
 void AntiMissile::Step()
 {
-	cooldown = max(0, --cooldown);
+	cooldown = std::max(0, cooldown - 1);
 }
 
 

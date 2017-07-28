@@ -1,17 +1,79 @@
-name	strength	accel drag	trigger
-"Finisher Torpedo"	50	1	.1	0
-"Railgun Slug"	14	.022	.001	0
-"Hai Tracker"	16	.7	.05	0
-"Korath Piercer"	73	.54	.03	0
-"Korath Mine"	35	.16	.04	0
-"Korath Mine Submunition"	22	.00001	.05	0
-"Pug Seeker"	40	1.3	.1	0
-"Thunderhead Missile"	12	1.1	.1	0
-"Thunderhead Fragment"	3	1.4	.1	0
-"Meteor Missile"	4	.9	.1	0
-"Sidewinder"	12	1.1	.1	0
-"Javelin"	2	10	0
-"Torpedo"	20	.7	.1	0
-"Typhoon Torpedo"	30	.5	.1	0
-"Heavy Rocket"	16	.8	.1	30
-"Nuclear Missile"	200	.8	.1	30
+ms "Finisher Torpedo"
+	strength 50
+	accel 1
+	drag .1
+	trigger 0
+ms "Railgun Slug"
+	strength 14
+	accel .022
+	drag .001
+	trigger 0
+ms "Hai Tracker"
+	strength 16
+	accel .7
+	drag .05
+	trigger 0
+ms "Korath Piercer"
+	strength 73
+	accel .54
+	drag .03
+	trigger 0
+ms "Korath Mine"
+	strength 35
+	accel .16
+	drag .04
+	trigger 0
+ms "Korath Mine Submunition"
+	strength 22
+	accel .00001
+	drag .05
+	trigger 0
+ms "Pug Seeker"
+	strength 40
+	accel 1.3
+	drag .1
+	trigger 0
+ms "Thunderhead Missile"
+	strength 12
+	accel 1.1
+	drag .1
+	trigger 0
+ms "Thunderhead Fragment"
+	strength 3
+	accel 1.4
+	drag .1
+	trigger 0
+ms "Meteor Missile"
+	strength 4
+	accel .9
+	drag .1
+	trigger 0
+ms "Sidewinder"
+	strength 12
+	accel 1.1
+	drag .1
+	trigger 0
+ms "Javelin"
+	strength 2
+	velocity 10
+	trigger 0
+ms "Torpedo"
+	strength 20
+	accel .7
+	drag .1
+	trigger 0
+ms "Typhoon Torpedo"
+	strength 30
+	accel .5
+	drag .1
+	trigger 0
+ms "Heavy Rocket"
+	strength 16
+	accel .8
+	drag .1
+	trigger 30
+ms "Nuclear Missile"
+	strength 200
+	accel .8
+	drag .1
+	trigger 30

@@ -1,6 +1,16 @@
-/*
-Class describing a missile
- */
+/* Missile.h
+Copyright (c) 2017 by tehhowch
+
+AntiMissileComparator is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
+
+AntiMissileComparator is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+details.
+*/
 
 #ifndef MISSILE_H_
 #define MISSILE_H_
@@ -9,12 +19,19 @@ Class describing a missile
 
 #include <string>
 
+class DataNode;
 class Point;
 
 class Missile {
 public:
-	// Fire this missile at the origin.
-	Point Launch();
+	void Load(const DataNode &node);
+	
+	// Create this missile at the specified position.
+	void SetPosition(const Point position);
+	// Fire this missile at the target. Returns the launch point.
+	Point Launch(const Point &target, double radius = 1000.);
+	// Move the missile. Returns true for a missile 'victory.'
+	bool Move(const Point &target);
 	
 	// Get the properties of this missile.
 	const std::string &Name() const;

@@ -38,8 +38,6 @@ void AntiMissile::Load(const DataNode &node)
 		else
 			child.PrintTrace("Skipping unrecognized attribute:");
 	}
-	
-	Initialize();
 }
 
 

@@ -38,7 +38,7 @@ namespace {
 	std::map<std::string, AntiMissile> ams;
 	std::map<std::string, Missile> missiles;
 	// Data from testing.
-	std::map<AntiMissile *, std::map<Missile *, std::map<size_t, std::pair<int, int>>>> data;
+	std::map<AntiMissile *, std::map<Missile *, std::map<size_t, std::pair<int, int>>>> trialsData;
 }
 
 
@@ -110,13 +110,13 @@ void PrintMissiles()
 
 void PrintData()
 {
-	if(data.empty())
+	if(trialsData.empty())
 	{
 		cout << "No data collected." << endl;
 		return;
 	}
 	cout << "Anti-Missile" << '\t' << "Missile" << '\t' << "Angle (deg)" << '\t' << "Win Rate" << '\n';
-	for(auto &am : data)
+	for(auto &am : trialsData)
 		for(auto &missile : am.second)
 			for(auto &angle : missile.second)
 				cout << am.first->Name() << '\t' << missile.first->Name() << '\t'

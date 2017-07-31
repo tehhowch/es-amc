@@ -67,7 +67,9 @@ public:
 	
 private:
 	static char *GetBasePath();
+#ifndef _WIN32
 	static char *readSymlink(const char *path);
+#endif
 };
 
 

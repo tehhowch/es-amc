@@ -15,6 +15,7 @@ details.
 #include "Missile.h"
 
 #include "DataNode.h"
+#include "pi.h"
 #include "Point.h"
 #include "Random.h"
 
@@ -59,7 +60,7 @@ void Missile::SetPosition(const Point position)
 // Create a from a random point along the circle boundary with the given radius.
 Point Missile::Launch(const Point &target, double radius)
 {
-	double theta = Random::Real() * 2 * M_PI;
+	double theta = Random::Real() * 2 * PI;
 	this->position = radius * Point(cos(theta), sin(theta)) + target;
 	
 	return position;

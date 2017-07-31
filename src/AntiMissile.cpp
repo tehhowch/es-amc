@@ -18,7 +18,11 @@ details.
 #include "Missile.h"
 #include "Random.h"
 
+#ifdef _WIN32
+#include <algorithm>
+#else
 #include <cmath>
+#endif
 
 using namespace std;
 

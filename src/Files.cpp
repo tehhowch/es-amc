@@ -20,6 +20,9 @@ program Endless Sky.
 #include "File.h"
 
 #if defined _WIN32
+# if defined __c2__
+  struct IUnknown;
+# endif
 #include <windows.h>
 #endif
 
@@ -39,7 +42,7 @@ using namespace std;
 
 namespace {
 	string resources;
-	string data;
+	string gamedata;
 	
 	mutex errorMutex;
 	
@@ -102,7 +105,9 @@ void Files::Init(const char * const *argv)
 			throw runtime_error("Unable to get path to resource directory!");
 		
 		resources = str;
+#ifndef _WIN32
 		free(str);
+#endif
 	}
 #if defined _WIN32
 	FixWindowsSlashes(resources);
@@ -134,10 +139,10 @@ void Files::Init(const char * const *argv)
 			throw runtime_error("Unable to find the resource directories!");
 		resources.erase(pos + 1);
 	}
-	data = resources + "data/";
+	gamedata = resources + "data/";
 	
 	// Check that all the directories exist.
-	if(!Exists(data))
+	if(!Exists(gamedata))
 		throw runtime_error("Unable to find the resource directories!");
 }
 
@@ -152,7 +157,7 @@ const string &Files::Resources()
 
 const string &Files::Data()
 {
-	return data;
+	return gamedata;
 }
 
 
@@ -479,6 +484,7 @@ void Files::LogError(const string &message)
 // Simple GetBasePath (not very portable).
 char *Files::GetBasePath()
 {
+#ifndef _WIN32
 	char *retval = NULL;
 	/* is a Linux-style /proc filesystem available? */
 	if(access("/proc", F_OK) == 0)
@@ -491,7 +497,7 @@ char *Files::GetBasePath()
 		retval = readSymlink("/proc/self/exe");
 #endif
 	}
-	
+
 	if(retval != NULL)
 	{
 		char *ptr = strrchr(retval, '/');
@@ -513,10 +519,30 @@ char *Files::GetBasePath()
 	}
 
 	return retval;
+#elif _WIN32
+#ifndef _pgmptr
+	vector<LPSTR> pathBuf;
+	DWORD copied = 0;
+	do {
+		pathBuf.resize(pathBuf.size() + MAX_PATH);
+		copied = GetModuleFileName(NULL, pathBuf[0], pathBuf.size());
+	} while(copied >= pathBuf.size());
+
+	pathBuf.resize(copied);
+
+	wstring path(pathBuf.begin(), pathBuf.end());
+	string sPath = ToUTF8(path.c_str());
+	vector<char> writeable(sPath.begin(), sPath.end());
+	writeable.push_back('\0');
+	return &*writeable.begin();
+#else
+	return _pgmptr;
+#endif
+#endif
 }
 
 
-
+#ifndef _WIN32
 char *Files::readSymlink(const char *path)
 {
 	char *retval = NULL;
@@ -546,3 +572,4 @@ char *Files::readSymlink(const char *path)
 	free(retval);
 	return NULL;
 }
+#endif
